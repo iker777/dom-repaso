@@ -63,6 +63,7 @@ const darkLight = document.querySelector(".dark-light")
 darkLight.innerHTML = '🌙'
 darkLight.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode")
-    document.body.classList.value=="dark-mode"?darkLight.innerHTML = '🌞':darkLight.innerHTML = '🌙'
+    document.body.classList.value=="dark-mode"? darkLight.innerHTML = '🌞':darkLight.innerHTML = '🌙'
+    document.body.classList.value=="dark-mode"? darkLight.style.backgroundColor="#03416a":darkLight.backgroundColor = darkLight.style.backgroundColor="#007acc"
 })
 
