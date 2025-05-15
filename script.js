@@ -59,11 +59,23 @@ lightbox.addEventListener("click", (e) => {
 });
 
 // 5. Botón oscuro
+const body = document.body
+
 const darkLight = document.querySelector(".dark-light")
 darkLight.innerHTML = '🌙'
 darkLight.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode")
-    document.body.classList.value=="dark-mode"? darkLight.innerHTML = '🌞':darkLight.innerHTML = '🌙'
-    document.body.classList.value=="dark-mode"? darkLight.style.backgroundColor="#03416a":darkLight.backgroundColor = darkLight.style.backgroundColor="#007acc"
+    body.classList.toggle("dark-mode")
+    body.classList.value=="dark-mode"? darkLight.innerHTML = '🌞':darkLight.innerHTML = '🌙'
+    body.classList.value=="dark-mode"? darkLight.style.backgroundColor="#03416a":darkLight.backgroundColor = darkLight.style.backgroundColor="#007acc"
+    if (body.classList.contains("dark-mode")) {
+    localStorage.setItem("tema", "oscuro");
+  } else {
+    localStorage.setItem("tema", "claro");
+  }
 })
 
+if(localStorage["tema"]=="oscuro"){
+    body.classList.add("dark-mode")
+    darkLight.innerHTML = '🌞'
+    darkLight.style.backgroundColor="#03416a"
+}
